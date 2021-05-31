@@ -1,0 +1,19 @@
+title SP Initiated SAML SSO \nPOST POST
+actor User
+
+Browser->SP: GET /protected-content
+SP->Browser: REDIRECT .../SAML2/POST/SSO
+Browser->IDP: GET .../SAML2/POST/SSO
+IDP->IDP: Validates SAML request
+opt if invalid session on IDP
+    IDP->Browser: RETURN login form page
+    User->Browser: Fills and submit login credentials
+    Browser->IDP: POST (uri?) credentials
+end
+IDP->IDP: Authenticate / \nGenerate SAML Response w/ assertion
+IDP->Browser: Returns auto-submit form w/ SAML Response \n
+Browser->SP: POST form (SAML Response) to ACS \n(i.e. /callback)
+SP->SP: Check SAML Response authenticity (i.e. signatures)\n Extract info from SAML Response
+SP->Browser: REDIRECT /protected-conent & SET cookies
+Browser->SP: GET /protected content
+SP->Browser: RETURN protected content
