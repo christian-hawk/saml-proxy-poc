@@ -1,20 +1,20 @@
 const spConfig = {
-    "id": "saml-default",
-    "displayName": "saml-default",
+    "id": "saml-default-poc",
+    "displayName": "saml-default-poc",
     "type": "saml",
     "mapping": "saml_ldap_profile",
     "passportStrategyId": "passport-saml",
     "enabled": true,
-    "callbackUrl": "https://t1.techno24x7.com/passport/auth/saml/saml-default/callback",
+    "callbackUrl": "https://dev.techno24x7.com/sp/callback",
     "requestForEmail": false,
     "emailLinkingSafe": false,
     "options": {
       "skipRequestCompression": true,
       "authnRequestBinding": "HTTP-POST",
       "identifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
-      "cert": "MIIDfzCCAmcCFGa+JH4OkI/IW+fXfRgu/RmV7TTbMA0GCSqGSIb3DQEBCwUAMHwxCzAJBgNVBAYTAkJSMQswCQYDVQQIDAJUWDEPMA0GA1UEBwwGQXVzdGluMRQwEgYDVQQKDAtHbHV1IFRlc3RpbjEaMBgGA1UEAwwRdDMudGVjaG5vMjR4Ny5jb20xHTAbBgkqhkiG9w0BCQEWDmNocmlzQGdsdXUub3JnMB4XDTIxMDYxNTIyMDM0MloXDTIyMDYxNTIyMDM0MlowfDELMAkGA1UEBhMCQlIxCzAJBgNVBAgMAlRYMQ8wDQYDVQQHDAZBdXN0aW4xFDASBgNVBAoMC0dsdXUgVGVzdGluMRowGAYDVQQDDBF0My50ZWNobm8yNHg3LmNvbTEdMBsGCSqGSIb3DQEJARYOY2hyaXNAZ2x1dS5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRqoUIc+zPStKWOOmm/wsjvtBbDQuYFmAEjoEBOeS1lxuWAZGZbwxmDUJIwLoUX2tojY98ae3XvdTjmbPK75P39IVakrJck4KlAlcANcDbqc5efnNU3wtP429cdZEreZBkCbBpeTlVEeC66TxPpseu5Y+aopTQg+hbP8NeH1BFEguPZJPyqe7H8s2SdubeVO6w5X2rN5UkyqU8oCcLatBfQ7wqY7fKvBmwLU9FSjkR1jYw3yo4UIcnA2yt7GXD7v0TlAs45LJ9C2cA7CVfN4SoOKs0Z45unBkNsMUNUrfSflBPr44ihOq622Muptyt2hZCJKh0ElLogBFMSptuBT5hAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAGWheQS6AsxDkJ0LJ/SI5VMF1GkZsGWCgd+qEdYGGqP05LMYEgCsNQW0tFziDdNbVF4yjSIoa6bR6K/CHHvmPzfY03qRAMrjd6ZGR0NuFWhzDqSgBTj8VlUaWqYNu5ELBgKQVPbeg6VUnNHk7OQZuyaf7ZmqgQjXixVTlthdnw+vcbZAypDwc86QN6B4RoUaGUBGFCzUAGfTWHt6aqs+xa5Ilh5fraiaRZbJZjblV8Lh4tvODQlXXlG5Ig1t/aYDhJLcezzjm1lf526I8FXulXJgAsWgfERU72XmJ7C88mNwDij9xjZgMEXreyznGtliVqXXiuiq0X0YxgP6M97PLWY=",
-      "entryPoint": "https://t3.techno24x7.com/idp/profile/SAML2/POST/SSO",
-      "issuer": "urn:test:default"
+      "cert": "MIIDjTCCAnUCFEfrDgg5EbuYxdqMKep1Dy6l9tfmMA0GCSqGSIb3DQEBCwUAMIGCMQswCQYDVQQGEwJCUjELMAkGA1UECAwCU1AxEjAQBgNVBAcMCVNhbyBQYXVsbzETMBEGA1UECgwKU2luZ2xlTWV0YTEeMBwGA1UEAwwVcG9jaWRwLnRlY2hubzI0eDcuY29tMR0wGwYJKoZIhvcNAQkBFg5jaHJpc0BnbHV1Lm9yZzAeFw0yMTA2MjQxNzMxMDJaFw0yMjA2MjQxNzMxMDJaMIGCMQswCQYDVQQGEwJCUjELMAkGA1UECAwCU1AxEjAQBgNVBAcMCVNhbyBQYXVsbzETMBEGA1UECgwKU2luZ2xlTWV0YTEeMBwGA1UEAwwVcG9jaWRwLnRlY2hubzI0eDcuY29tMR0wGwYJKoZIhvcNAQkBFg5jaHJpc0BnbHV1Lm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALGNOi4d5sbOIaqmJY7VLuLODs2bO1VvGN8AydqVL1TR2ibB1ZmkTZCBQAulh3iiW+NwHYpPVzoOkEmCH7qT+BvqQ0LuAWwb88+a7G4t69PwVkO1oE8sxApuQ0qh7TQ0eRhn1jhROff1M+SOvDYeJXezMLPyDSlgzzt9oEymb3spoV7LlyPfDXhfGIrGDWsrGFTAMC5wAlyMji3Cv+rjSNdJSFQQ07mYIGAiV9jmIDwe47amTvmMQZTXCOQlgJnjivalUfRkZnhYnBeS4tkkuQu/ZQqM5EOaX4hyZkYMImjpWq1Era4UmMht1y+zPLwIyGjoBMRvG/Iznx6PWMQeTacCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAGuxFRGUxlOJ1EdgJSidlDbGY/LpuGoeQHmBk3gFhug8FMKjeY2MU+RfpCzxoR1sF2wsshagcSMYs7D6ApWFcg+RqpTJ6B3CP5rANx2+MwXDs8lEf0yrswlDmCVXTK8g5CwYtARqHPM9kv0gFUkSfSobRvkTRGPzYwhvmPNpTWKtZtPF/rNam8Y3l56jEeMFJjLLtz/3Q7/ofH94rsDFFgslzQrk0ETEftKsgV1g0s9/icPzgH9cYK+J2E/ADoC0j2XCk8TegMglUvJ34DsJUrL/sYIs/Z7A5nnrVMiTx7wAGDl1w6so7rK+h/TkIrORwOyXWyO1LIHD5+yMkv1ARew==",
+      "entryPoint": "https://pocidp.techno24x7.com/idp/profile/SAML2/POST/SSO",
+      "issuer": "urn:samlpoc:test"
     }
   }
 
