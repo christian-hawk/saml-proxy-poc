@@ -2,6 +2,7 @@ const spConfig = require('./sp-config')
 const passport = require('passport')
 const SamlStrategy = require('passport-saml').Strategy
 const fs = require('fs')
+const logger = require('./logger')
 
 const decryptionPvk = fs.readFileSync('./test.key').toString()
 
@@ -25,7 +26,8 @@ const strategy = new SamlStrategy(
         identifierFormat: spConfig.options.identifierFormat
     },
     (profile, done) => {
-        done(null, profile)
+        logger.info(`profile is: ${profile} `)
+        return done(null, profile)
     }
     )
 
